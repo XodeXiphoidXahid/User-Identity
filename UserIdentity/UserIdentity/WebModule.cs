@@ -11,6 +11,8 @@ namespace UserIdentity
     {
         protected override void Load(ContainerBuilder builder)
         {
+            
+
             builder.RegisterType<ApplicationDbContext>().As<IApplicationDbContext>()
                .InstancePerLifetimeScope();
             base.Load(builder);
