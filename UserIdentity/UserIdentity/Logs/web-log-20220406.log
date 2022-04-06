@@ -914,3 +914,6 @@ Autofac.Core.Registration.ComponentNotRegisteredException: The requested service
    at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 2022-04-06 16:23:21.238 +06:00 [INF] Application Starting up
+2022-04-06 16:36:57.870 +06:00 [INF] Application Starting up
+2022-04-06 16:43:24.096 +06:00 [INF] Application Starting up
+2022-04-06 16:44:22.160 +06:00 [INF] User created a new account with password.
