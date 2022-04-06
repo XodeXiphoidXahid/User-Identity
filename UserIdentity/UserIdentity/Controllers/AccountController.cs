@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -81,6 +82,56 @@ namespace UserIdentity.Controllers
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        [TempData]
+        public string ErrorMessage { get; set; }
+        public async Task<IActionResult> Login(string returnUrl = null)
+        {
+            if (!string.IsNullOrEmpty(ErrorMessage))
+            {
+                ModelState.AddModelError(string.Empty, ErrorMessage);
+            }
+
+            returnUrl ??= Url.Content("~/");
+
+            // Clear the existing external cookie to ensure a clean login process
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+
+            var model = new LoginModel();
+            model.ReturnUrl = returnUrl;
+            model.ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginModel model, string returnUrl = null)
+        {
+            returnUrl ??= Url.Content("~/");
+
+            model.ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+            if (ModelState.IsValid)
+            {
+                // This doesn't count login failures towards account lockout
+                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return View(model);
                 }
             }
 
