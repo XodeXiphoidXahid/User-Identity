@@ -7,6 +7,7 @@ namespace UserIdentity.Entities
     {
         
         public string Address { get; set; }
+        public string Education { get; set; }
         
     }
 }

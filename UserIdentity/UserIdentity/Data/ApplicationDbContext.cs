@@ -10,7 +10,7 @@ namespace UserIdentity.Data
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Role, Guid, 
         UserClaim, UserRole, UserLogin, RoleClaim, UserToken>, IApplicationDbContext
     {
-        private string _connectionString = "Server=DESKTOP-I1E8S95\\SQLEXPRESS;Database=UserIdentity;Trusted_Connection=True;";
+       
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -19,16 +19,7 @@ namespace UserIdentity.Data
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
-        {
-            if (!dbContextOptionsBuilder.IsConfigured)
-            {
-                
-                dbContextOptionsBuilder.UseSqlServer(_connectionString);
-            }
-
-            base.OnConfiguring(dbContextOptionsBuilder);
-        }
+        
 
     }
 }
