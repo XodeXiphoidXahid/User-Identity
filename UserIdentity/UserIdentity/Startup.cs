@@ -105,7 +105,7 @@ namespace UserIdentity
                 options.Cookie.IsEssential = true;
             });
 
-            services.AddControllersWithViews();
+            
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {
@@ -114,12 +114,12 @@ namespace UserIdentity
                 })
                 .AddFacebook(options=>
                 {
-                    options.AppId = "373181004696519";
-                    options.AppSecret = "bf24c2c93b24676531659afe794e584b";
-                })
-                ;
-                
-                
+                    options.AppId = "1007821210110052";
+                    options.AppSecret = "091df8dcb5099177d6282c0ec2d087b5";
+                });
+
+
+            services.AddControllersWithViews();
 
             services.AddHttpContextAccessor();
             services.AddRazorPages();

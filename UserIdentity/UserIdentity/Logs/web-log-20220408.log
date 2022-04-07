@@ -1,0 +1,30 @@
+2022-04-08 00:25:06.660 +06:00 [INF] Application Starting up
+2022-04-08 00:50:40.614 +06:00 [INF] Application Starting up
+2022-04-08 00:53:41.323 +06:00 [INF] User logged out.
+2022-04-08 00:53:50.789 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: An error was encountered while handling the remote login.
+ ---> System.Exception: The oauth state was missing or invalid.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-08 01:16:43.398 +06:00 [INF] Application Starting up
+2022-04-08 01:28:39.543 +06:00 [INF] Application Starting up
+2022-04-08 01:31:26.801 +06:00 [INF] Application Starting up
+2022-04-08 01:31:46.003 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: An error was encountered while handling the remote login.
+ ---> System.Exception: Access was denied by the resource owner or by the remote server.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-08 01:32:01.521 +06:00 [INF] Application Starting up
+2022-04-08 01:32:38.922 +06:00 [INF] Application Starting up
+2022-04-08 02:24:23.077 +06:00 [INF] Application Starting up
+2022-04-08 02:24:50.706 +06:00 [INF] User logged out.
