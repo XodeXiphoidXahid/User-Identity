@@ -57,28 +57,6 @@ namespace UserIdentity.Controllers
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Login", "Account");
-
-                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //code = HttpUtility.HtmlEncode(code);
-                    ////code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-
-                        //var callbackUrl = Url.Action(
-                        //    nameof(ConfirmEmail), "Account",
-                        //     new { token = code, userId = user.Id },
-                        //    protocol: Request.Scheme);
-
-                        //if (_userManager.Options.SignIn.RequireConfirmedEmail)
-                        //{
-                        //    _emailService.SendEmail(model.Email, "Confirm your email",
-                        //    $"Please confirm your account by <a href='{callbackUrl}'>link</a>.", null);
-
-                        //    return RedirectToAction("Login", "Account", new { email = model.Email, returnUrl = model.ReturnUrl });
-                        //}
-                    //else
-                    //{
-                    //    await _signInManager.SignInAsync(user, isPersistent: false);
-                    //    return RedirectToAction("Login", "Account");
-                    //}
                 }
                 foreach (var error in result.Errors)
                 {
@@ -177,7 +155,7 @@ namespace UserIdentity.Controllers
 
             if(signInResult.Succeeded)
             {
-                return LocalRedirect(returnUrl);
+                return RedirectToAction("Index", "Home");
             }
             
             else
@@ -187,7 +165,7 @@ namespace UserIdentity.Controllers
                 if(email!=null)
                 {
                     var user = await _userManager.FindByEmailAsync(email);
-
+                     
                     if(user==null)
                     {
                         user = new ApplicationUser

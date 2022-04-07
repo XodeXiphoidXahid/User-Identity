@@ -111,7 +111,15 @@ namespace UserIdentity
                 {
                     options.ClientId = "810779503391-u1pdk73e3vmssdm2jsisdmq9opndp4do.apps.googleusercontent.com";
                     options.ClientSecret = "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";
-                });
+                })
+                .AddFacebook(options=>
+                {
+                    options.AppId = "373181004696519";
+                    options.AppSecret = "bf24c2c93b24676531659afe794e584b";
+                })
+                ;
+                
+                
 
             services.AddHttpContextAccessor();
             services.AddRazorPages();
