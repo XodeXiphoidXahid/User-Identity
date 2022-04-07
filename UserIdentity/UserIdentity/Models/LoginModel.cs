@@ -23,3 +23,4 @@ namespace UserIdentity.Models
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
     }
 }
+ 

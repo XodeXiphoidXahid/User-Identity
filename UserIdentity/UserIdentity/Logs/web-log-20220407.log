@@ -1,0 +1,24 @@
+2022-04-07 11:56:33.832 +06:00 [INF] Application Starting up
+2022-04-07 11:58:25.563 +06:00 [WRN] '.AspNetCore.Correlation.Google.HHq6WMV6vA6OQEA-XxeqMjhktPD1IKTN7q5uMRjk-sM' cookie not found.
+2022-04-07 11:58:25.589 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: An error was encountered while handling the remote login.
+ ---> System.Exception: Correlation failed.
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationHandler`1.HandleRequestAsync()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-04-07 12:02:09.277 +06:00 [INF] Application Starting up
+2022-04-07 12:03:00.715 +06:00 [INF] Application Starting up
+2022-04-07 12:03:25.729 +06:00 [INF] Application Starting up
+2022-04-07 12:04:59.554 +06:00 [INF] Application Starting up
+2022-04-07 12:08:31.388 +06:00 [INF] Application Starting up
+2022-04-07 12:13:02.991 +06:00 [INF] Application Starting up
+2022-04-07 12:21:49.101 +06:00 [INF] Application Starting up
+2022-04-07 12:23:54.907 +06:00 [INF] Application Starting up
+2022-04-07 12:26:11.619 +06:00 [INF] Application Starting up
+2022-04-07 12:26:36.759 +06:00 [INF] User logged out.
+2022-04-07 12:27:35.250 +06:00 [INF] Application Starting up
+2022-04-07 12:28:02.436 +06:00 [INF] User logged out.

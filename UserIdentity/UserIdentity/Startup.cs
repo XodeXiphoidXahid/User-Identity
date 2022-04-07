@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using UserIdentity.Data;
 using UserIdentity.Entities;
 using UserIdentity.Services;
+using Microsoft.AspNetCore.Authentication;
 
 namespace UserIdentity
 {
@@ -105,8 +106,16 @@ namespace UserIdentity
             });
 
             services.AddControllersWithViews();
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = "810779503391-u1pdk73e3vmssdm2jsisdmq9opndp4do.apps.googleusercontent.com";
+                    options.ClientSecret = "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";
+                });
+
             services.AddHttpContextAccessor();
             services.AddRazorPages();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -136,7 +145,7 @@ namespace UserIdentity
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Account}/{action=Register}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}");
                 endpoints.MapRazorPages();
             });
         }
