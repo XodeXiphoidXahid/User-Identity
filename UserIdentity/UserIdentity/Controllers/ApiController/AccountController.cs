@@ -48,5 +48,22 @@ namespace UserIdentity.Controllers.ApiController
 
             return Ok("Failed");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginModel model, string returnUrl = null)
+        {
+            returnUrl ??= Url.Content("~/");
+
+            model.ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+
+            if (result.Succeeded)
+                return Ok("Success");
+            else
+                return Ok("Invalid");
+
+
+        }
     }
 }

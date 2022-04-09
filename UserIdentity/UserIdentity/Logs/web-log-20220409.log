@@ -8,3 +8,9 @@
 2022-04-09 16:05:39.277 +06:00 [WRN] User null password validation failed: PasswordRequiresNonAlphanumeric.
 2022-04-09 16:07:39.532 +06:00 [INF] Application Starting up
 2022-04-09 16:07:59.948 +06:00 [INF] User created a new account with password.
+2022-04-09 18:03:47.458 +06:00 [INF] Application Starting up
+2022-04-09 18:04:30.560 +06:00 [WRN] Invalid password for user be1b4080-ca96-4c20-0dfc-08da1a10cde7.
+2022-04-09 18:04:30.568 +06:00 [WRN] User be1b4080-ca96-4c20-0dfc-08da1a10cde7 failed to provide the correct password.
+2022-04-09 18:04:48.628 +06:00 [INF] Application Starting up
+2022-04-09 18:05:28.325 +06:00 [WRN] Invalid password for user be1b4080-ca96-4c20-0dfc-08da1a10cde7.
+2022-04-09 18:05:28.329 +06:00 [WRN] User be1b4080-ca96-4c20-0dfc-08da1a10cde7 failed to provide the correct password.

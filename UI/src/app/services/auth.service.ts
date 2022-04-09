@@ -22,4 +22,16 @@ export class AuthService {
     }
     );
   }
+
+  loginUser(loginInfo: Array<String>){
+    return this.http.post(this.baseServerUrl+"Login", 
+    {
+      Email: loginInfo[0],
+      Password: loginInfo[1]
+    },
+    {
+      responseType: 'text',
+    }
+    );
+  }
 }
