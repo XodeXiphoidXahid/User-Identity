@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   repeatPass: string='none';
-  constructor() { }
+  displayMessage: string='';
+  isAccountCreated: boolean=false;
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -28,8 +31,21 @@ export class RegisterComponent implements OnInit {
     if(this.Pwd.value==this.Cpwd.value){
       console.log("Submitted");
       this.repeatPass='none'
-    }else{
-      this.repeatPass='inline'
+
+      this.authService.registerUser(
+        [this.registerForm.value.email,
+          this.registerForm.value.pwd,
+          this.registerForm.value.cPwd
+        ]
+      ).subscribe(res=>{
+        if(res=='Success'){
+          this.displayMessage='Account Created Successfully!';
+          this.isAccountCreated=true;
+        }else{
+          this.displayMessage='Something went wrong';
+          this.isAccountCreated=false;
+        }
+      });
     }
   }
 
@@ -44,4 +60,5 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get("cPwd") as FormControl;
   }
 }
+//https://localhost:44386/
 

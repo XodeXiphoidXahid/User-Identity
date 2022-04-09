@@ -49,6 +49,14 @@ namespace UserIdentity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "AllowOrigin", builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+                }
+                );
+            });
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -69,11 +77,11 @@ namespace UserIdentity
             {
                 // Password settings.
                 options.Password.RequireDigit = false;
-                options.Password.RequireLowercase = true;
-                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
-                options.Password.RequiredLength = 6;
-                options.Password.RequiredUniqueChars = 1;
+                //options.Password.RequiredLength = 6;
+                //options.Password.RequiredUniqueChars = 1;
 
                 // Lockout settings.
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
@@ -98,6 +106,7 @@ namespace UserIdentity
                 options.SlidingExpiration = true;
             });
 
+            services.AddControllersWithViews();
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromSeconds(100);
@@ -119,7 +128,7 @@ namespace UserIdentity
                 });
 
 
-            services.AddControllersWithViews();
+            
 
             services.AddHttpContextAccessor();
             services.AddRazorPages();
@@ -142,9 +151,12 @@ namespace UserIdentity
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseCors("AllowOrigin");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();
